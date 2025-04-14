@@ -17,6 +17,19 @@ function MinhasCredenciais({ githubUser }) {
             uri: `https://github.com/${githubUser}.png`,
           }}
         />
+        <Image
+          style={{
+            width:"100%",
+            height: 350 
+            
+          }}
+     
+          source={{
+            uri: `https://github.com/${githubUser}.png`,
+          }}
+        />
+        <text >{githubUser}</text>
+        
         <View>
           <AntDesign name="hearto" size={24} color="black" />
         </View>
