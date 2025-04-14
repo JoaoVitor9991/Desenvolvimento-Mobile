@@ -1,21 +1,29 @@
 {
   "cli": {
-    "version": ">= 16.2.2",
-    "appVersionSource": "remote"
+    "version": ">= 0.52.0"
   },
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
-    },
-    "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
     },
     "production": {
-      "autoIncrement": true
+      "android": {
+        "buildType": "apk"
+      }
     }
   },
-  "submit": {
-    "production": {}
+  "extra": {
+    "eas": {
+      "projectId": "01dcb3c4-5f99-440d-8b40-abfe5331738d"
+    }
+  },
+  "expo": {
+    "android": {
+      "package": "com.joaoamatsu7.appmobile"
+    }
   }
 }
