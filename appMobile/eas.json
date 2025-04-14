@@ -15,15 +15,5 @@
         "buildType": "apk"
       }
     }
-  },
-  "extra": {
-    "eas": {
-      "projectId": "01dcb3c4-5f99-440d-8b40-abfe5331738d"
-    }
-  },
-  "expo": {
-    "android": {
-      "package": "com.joaoamatsu7.appmobile"
-    }
   }
 }
