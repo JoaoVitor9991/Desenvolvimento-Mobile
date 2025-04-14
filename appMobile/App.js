@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { ScrollView } from 'react-native-web';
 
 function MinhasCredenciais({ githubUser }) {
   return (
@@ -19,7 +20,7 @@ function MinhasCredenciais({ githubUser }) {
         />
         <Image
           style={{
-            width:"100%",
+            width:"400px",
             height: 350 
             
           }}
@@ -28,7 +29,7 @@ function MinhasCredenciais({ githubUser }) {
             uri: `https://github.com/${githubUser}.png`,
           }}
         />
-        <text >{githubUser}</text>
+        <Text >{githubUser}</Text>
         
         <View>
           <AntDesign name="hearto" size={24} color="black" />
@@ -41,6 +42,7 @@ function MinhasCredenciais({ githubUser }) {
 export default function App() {
   return (
     <View style={styles.container}>
+      <ScrollView>
       {[
         'WRK7',
         'mauriiicio',
@@ -50,6 +52,7 @@ export default function App() {
       ].map((githubUser) => (
         <MinhasCredenciais key={githubUser} githubUser={githubUser} />
       ))}
+      </ScrollView>
     </View>
   );
 }
@@ -65,7 +68,7 @@ const styles = StyleSheet.create({
   text: {
     color: '#fff',
     marginRight: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
+    //alignItems: 'center',
+    //justifyContent: 'center',
   },
 });
