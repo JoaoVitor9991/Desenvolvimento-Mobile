@@ -34,7 +34,7 @@ function MinhasCredenciais({ githubUser }) {
         onPress={() => setIsLiked(!isLiked)}
         name={isLiked? "heart" : "hearto"}
         size={24}
-        color={isLiked? "red" : "blac"} 
+        color={isLiked? "red" : "black"} 
         />
       </View>
     </View>
