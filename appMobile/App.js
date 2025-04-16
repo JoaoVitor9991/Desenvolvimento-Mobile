@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, SafeAreaView } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { ScrollView } from 'react-native-web';
 
 function MinhasCredenciais({ githubUser }) {
   return (
-    <View style={styles.credenciaisContainer}>
+    <SafeAreaView style={styles.credenciaisContainer}>
       <View style={{ flexDirection: 'row', padding: 15, alignItems: 'center' }}>
         <Image
           style={{
@@ -35,7 +35,7 @@ function MinhasCredenciais({ githubUser }) {
           <AntDesign name="hearto" size={24} color="black" />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
