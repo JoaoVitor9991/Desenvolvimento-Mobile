@@ -21,7 +21,7 @@ function MinhasCredenciais({ githubUser }) {
         <Image
           style={{
             width:"400px",
-            height: 350 
+            height: 35 
             
           }}
      
