@@ -1,7 +1,9 @@
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { useState } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView} from 'react-native';
 
 function MinhasCredenciais({ githubUser }) {
+  const[isLiked, setIsLiked] = useState(false);
   return (
     <View>
       <View style={{ flexDirection: 'row', padding: 15, alignItems: 'center' }}>
@@ -28,7 +30,12 @@ function MinhasCredenciais({ githubUser }) {
         }}
       />
       <View>
-        <AntDesign onPress={AntDesign} name="heart" size={24} color="black" />
+        <AntDesign 
+        onPress={() => setIsLiked(!isLiked)}
+        name={isLiked? "heart" : "hearto"}
+        size={24}
+        color={isLiked? "red" : "black"} 
+        />
       </View>
     </View>
 
