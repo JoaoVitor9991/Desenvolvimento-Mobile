@@ -12,7 +12,7 @@ function MinhasCredenciais({ githubUser }) {
             marginRight: 15,
             width: 40,
             height: 40,
-            bordeRadius: 20,
+            borderRadius: 20,
           }}
           source={{
             uri: `https://github.com/${githubUser}.png `
@@ -34,7 +34,7 @@ function MinhasCredenciais({ githubUser }) {
         onPress={() => setIsLiked(!isLiked)}
         name={isLiked? "heart" : "hearto"}
         size={24}
-        color={isLiked? "red" : "black"} 
+        color={isLiked? "red" : "blac"} 
         />
       </View>
     </View>
