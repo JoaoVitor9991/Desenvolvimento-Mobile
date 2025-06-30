@@ -125,6 +125,6 @@ const styles = StyleSheet.create({
   },
 
   modalButton: {
-
+    backgroundColor:
   }
 });
