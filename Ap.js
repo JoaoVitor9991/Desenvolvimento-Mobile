@@ -124,5 +124,7 @@ const styles = StyleSheet.create({
 
   },
 
-  
+  modalButton {
+    
+  }
 });
