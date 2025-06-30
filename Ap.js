@@ -67,4 +67,18 @@ const styles = StyleSheet.create({
     //alignItems: 'center',
     //justifyContent: 'center',
   },
+  image: {
+    width: 100,
+    height: 100,
+    marginBottom: 15
+  },
+
+  input:{
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius:8,
+    paddingHorizontal: 10,
+    marginBottom: 15,
+    backgroundColor: '#f9f9f9',
+  }
 });
