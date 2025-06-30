@@ -11,6 +11,12 @@ const styles = StyleSheet.create({
     //alignItems: 'center',
     //justifyContent: 'center',
   },
+
+  text: {
+    fontSize: 18,
+    marginBottom: 10
+  },
+  
   image: {
     width: 100,
     height: 100,
