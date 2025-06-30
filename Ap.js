@@ -117,5 +117,7 @@ const styles = StyleSheet.create({
     maxWidth: 300,
   },
 
+  modalText: {
     
+  }
 });
