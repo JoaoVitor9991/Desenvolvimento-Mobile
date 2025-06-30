@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
   },
 
   modalText: {
+    fontSize: 16,
     
   }
 });
