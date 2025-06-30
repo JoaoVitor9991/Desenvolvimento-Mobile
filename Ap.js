@@ -80,5 +80,42 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 15,
     backgroundColor: '#f9f9f9',
-  }
+  },
+
+  customButton: {
+    backgroundColor: '#007AFF',
+    paddingVertical: 10,
+    paddingHorizontal:20,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset:{widht: 0, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevetion: 3,  
+  },
+
+  buttonText:{
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  modalOverlay:{
+    color: 'fff',
+    backgroundColor: 'rgba(0,0,0,0,5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  modalContent: {
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+    widht: '80%',
+    maxWidth: 300,
+  },
+
+    
 });
