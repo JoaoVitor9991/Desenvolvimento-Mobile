@@ -1,7 +1,15 @@
 import React,{useState} from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Modal, KeyboardAvoidingView, Platform} from 'react-native';
-import AntDesign from '@expo/vector-icons/AntDesign'
+import { StyleSheet, Text, View, Image, TextInput, Modal, KeyboardAvoidingView, Platform } from 'react-native';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import NewWindow from './NewWindow';
 
+const Stack = createStackNavigator();
+
+function mainScreen({navigation}){
+
+}
 
 
 const styles = StyleSheet.create({
@@ -16,7 +24,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 10
   },
-  
+
   image: {
     width: 100,
     height: 100,
