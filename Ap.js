@@ -8,7 +8,12 @@ import NewWindow from './NewWindow';
 const Stack = createStackNavigator();
 
 function mainScreen({navigation}){
-
+  const [heartColor, setHeartColor] = useState('gray');
+  const [login, setLogin] = useState('');
+  const[p2assword, setPassword] = useStatee('');
+  const [modalVisible, setModalVisible] = useState (false);
+  const [modalMessage, setModalMessage] = useState('');
+  
 }
 
 
