@@ -13,7 +13,50 @@ function mainScreen({navigation}){
   const[p2assword, setPassword] = useStatee('');
   const [modalVisible, setModalVisible] = useState (false);
   const [modalMessage, setModalMessage] = useState('');
-  
+
+  const toggleHeartColor = () => {
+    setHeartColor(heartColor === 'red' ? 'gray' : 'red');
+  };
+
+  const showAlert = () => {
+    try{
+      if (login === 'admin' && password === 'admin'){
+        setModalMessage('Login e Senha Corretos');
+      } else {
+        setModalMessage ('Login ou senha Incorretos');
+      }
+      setModalVisible(true);
+    }catch(error){
+      console.error('Erro Modal: ', error);
+    } 
+  };
+  return(
+    <KeyboardAvoidingView
+    style= {style.container}
+    behavior = {Platform.OS === 'ios' ? 'padding': 'height'}
+    keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
+    >
+     <View style={styles.innerContainer}>
+      <Text style={styles.text}>Aplicativo Maneiro</Text>
+       <image
+         source= {{uri: 'https:/github.com/joaovitor9991.png'}}
+         style = {styles.image} 
+       
+
+       /> 
+     </View>
+    
+
+
+
+
+    </KeyboardAvoidingView>
+  );
+
+
+
+
+
 }
 
 
@@ -24,7 +67,13 @@ const styles = StyleSheet.create({
     //alignItems: 'center',
     //justifyContent: 'center',
   },
+  innerContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
 
+  },
   text: {
     fontSize: 18,
     marginBottom: 10
