@@ -81,7 +81,7 @@ function MainScreen({ navigation }) {
         <TextInput
           style={styles.input}
           placeholder='Senha'
-          secureTextEntry // Oculta o texto da senha
+          secureTextEntry 
           autoCapitalize='none'
           value={password}
           onChangeText={setPassword}
