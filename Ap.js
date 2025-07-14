@@ -41,8 +41,8 @@ function mainScreen({navigation}){
        <image
          source= {{uri: 'https:/github.com/joaovitor9991.png'}}
          style = {styles.image} 
-       
-
+          
+        
        /> 
      </View>
     
