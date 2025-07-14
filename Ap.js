@@ -1,62 +1,139 @@
-import React,{useState} from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Modal, KeyboardAvoidingView, Platform } from 'react-native';
-import AntDesign from '@expo/vector-icons/AntDesign';
+import React, { useState } from 'react';
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  Image, 
+  TextInput, 
+  Modal, 
+  KeyboardAvoidingView, 
+  Platform, 
+  TouchableOpacity 
+} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import NewWindow from './NewWindow';
+
+
+function NewWindow() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Bem-vindo à Nova Tela!</Text>
+    </View>
+  );
+}
 
 const Stack = createStackNavigator();
 
-function mainScreen({navigation}){
-  const [heartColor, setHeartColor] = useState('gray');
+
+function MainScreen({ navigation }) {
+  
   const [login, setLogin] = useState('');
-  const[p2assword, setPassword] = useStatee('');
-  const [modalVisible, setModalVisible] = useState (false);
+  const [password, setPassword] = useState(''); 
+  const [modalVisible, setModalVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
 
-  const toggleHeartColor = () => {
-    setHeartColor(heartColor === 'red' ? 'gray' : 'red');
-  };
-
-  const showAlert = () => {
-    try{
-      if (login === 'admin' && password === 'admin'){
-        setModalMessage('Login e Senha Corretos');
+  const handleLoginPress = () => {
+    try {
+      if (login.toLowerCase() === 'admin' && password === 'admin') {
+        setModalMessage('Login e Senha Corretos!');
       } else {
-        setModalMessage ('Login ou senha Incorretos');
+        setModalMessage('Login ou Senha Incorretos.');
       }
       setModalVisible(true);
-    }catch(error){
-      console.error('Erro Modal: ', error);
-    } 
+    } catch (error) {
+      console.error('Erro ao exibir o modal: ', error);
+    }
   };
-  return(
+
+ 
+  const handleCloseModal = () => {
+    setModalVisible(false);
+    if (login.toLowerCase() === 'admin' && password === 'admin') {
+      navigation.navigate('NewWindow'); 
+    }
+  };
+
+  return (
     <KeyboardAvoidingView
-    style= {style.container}
-    behavior = {Platform.OS === 'ios' ? 'padding': 'height'}
-    keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
     >
-     <View style={styles.innerContainer}>
-      <Text style={styles.text}>Aplicativo Maneiro</Text>
-       <image
-         source= {{uri: 'https:/github.com/joaovitor9991.png'}}
-         style = {styles.image} 
-          
+      <View style={styles.innerContainer}>
+        <Text style={styles.titleText}>Aplicativo Maneiro</Text>
         
-       /> 
-     </View>
-    
+        
+        <Image
+          source={{ uri: 'https://github.com/joaovitor9991.png' }}
+          style={styles.image}
+        />
 
+       
+        <TextInput
+          style={styles.input}
+          placeholder='Login'
+          autoCapitalize='none'
+          value={login}
+          onChangeText={setLogin}
+        />
 
+        
+        <TextInput
+          style={styles.input}
+          placeholder='Senha'
+          secureTextEntry // Oculta o texto da senha
+          autoCapitalize='none'
+          value={password}
+          onChangeText={setPassword}
+        />
 
+       
+        <TouchableOpacity onPress={handleLoginPress} style={styles.customButton}>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+      </View>
 
+      
+      <Modal
+        animationType='fade'
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalText}>{modalMessage}</Text>
+            <TouchableOpacity
+              style={styles.modalButton}
+              onPress={handleCloseModal} 
+            >
+              <Text style={styles.modalButtonText}>OK</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </KeyboardAvoidingView>
   );
+}
 
 
-
-
-
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Main">
+        <Stack.Screen 
+          name="Main" 
+          component={MainScreen} 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="NewWindow" 
+          component={NewWindow}
+          options={{ title: 'Área do Usuário' }} 
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
 
@@ -64,90 +141,93 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    //alignItems: 'center',
-    //justifyContent: 'center',
   },
   innerContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
-
+  },
+  titleText: {
+    fontSize: 24, 
+    fontWeight: 'bold',
+    marginBottom: 20, 
+    color: '#333',
   },
   text: {
     fontSize: 18,
-    marginBottom: 10
+    marginBottom: 10,
   },
-
   image: {
     width: 100,
     height: 100,
-    marginBottom: 15
+    borderRadius: 50, 
+    marginBottom: 30, 
   },
-
-  input:{
+  input: {
+    width: '90%', 
+    height: 50,
     borderColor: '#ccc',
     borderWidth: 1,
-    borderRadius:8,
-    paddingHorizontal: 10,
+    borderRadius: 8,
+    paddingHorizontal: 15,
     marginBottom: 15,
     backgroundColor: '#f9f9f9',
+    fontSize: 16,
   },
-
   customButton: {
     backgroundColor: '#007AFF',
-    paddingVertical: 10,
-    paddingHorizontal:20,
+    paddingVertical: 12,
+    paddingHorizontal: 30,
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: '#000',
-    shadowOffset:{widht: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
-    elevetion: 3,  
+    elevation: 5, 
+    marginTop: 10,
   },
-
-  buttonText:{
+  buttonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
   },
-  modalOverlay:{
-    color: 'fff',
-    backgroundColor: 'rgba(0,0,0,0,5)',
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)', 
     justifyContent: 'center',
     alignItems: 'center',
   },
-
   modalContent: {
     backgroundColor: '#fff',
-    padding: 20,
+    padding: 25,
     borderRadius: 10,
     alignItems: 'center',
-    widht: '80%',
-    maxWidth: 300,
+    width: '80%', 
+    maxWidth: 320,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
   },
-
   modalText: {
-    fontSize: 16,
+    fontSize: 18,
     marginBottom: 20,
     textAlign: 'center',
-
+    color: '#333',
   },
-
   modalButton: {
     backgroundColor: '#007AFF',
     paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingHorizontal: 30,
     borderRadius: 8,
   },
-
   modalButtonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
   },
-
-
 });
