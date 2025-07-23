@@ -8,7 +8,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Mauricio</Text>
+      <Text>Mauricios</Text>
       
       <Button
         title='Press Here'
